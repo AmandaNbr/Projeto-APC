@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 int main()
 {
@@ -16,6 +17,7 @@ int main()
 
 void showMenu()
 {
+    system("cls");
     printf("Escolha uma das opcoes abaixo:\n");
     printf("1 - Cadastrar Estado\n");
     printf("2 - Cadastrar curso\n");
@@ -23,7 +25,7 @@ void showMenu()
     printf("4 - Listar pessoas por Estado\n");
     printf("5 - Listar pessoas por Curso Desejado\n");
     printf("6 - Consultar Pessoa por Nome\n");
-    printf("7 - Gerar relatório demográfico\n");
+    printf("7 - Gerar relatario demografico\n");
     printf("8 - Finalizar Programa\n");
 }
 
@@ -32,32 +34,61 @@ int chooseOption()
     int option;
 
     scanf("%d", &option);
+    fflush(stdin);
+    system("cls");
 
     switch(option)
     {
     case 1:
-
-    return 1;
+        registerState();
+        return 1;
     case 2:
 
-    return 2;
+        return 2;
     case 3:
 
-    return 3;
+        return 3;
     case 4:
 
-    return 4;
+        return 4;
     case 5:
 
-    return 5;
+        return 5;
     case 6:
 
-    return 6;
+        return 6;
     case 7:
 
-    return 7;
+        return 7;
     case 8:
 
-    return 8;
+        return 8;
+    default:
+        printf("Opcao invalida. (Aperte ENTER para voltar ao menu)\n");
+        fgetc(stdin);
+        fflush(stdin);
+        return 0;;
     }
+}
+
+registerState()
+{
+    printf("Informe a sigla da Unidade Federativa a ser cadastrada:\n");
+
+    char state[3];
+	fgets(state, 3, stdin);
+	fflush(stdin);
+
+	convertToLowercase(state);
+}
+
+void convertToLowercase(char text[]) {
+   int c = 0;
+
+   while (text[c] != '\0') {
+      if (text[c] >= 'A' && text[c] <= 'Z') {
+         text[c] = text[c] + 32;
+      }
+      c++;
+   }
 }
