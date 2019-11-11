@@ -80,6 +80,8 @@ registerState()
 	fflush(stdin);
 
 	convertToLowercase(state);
+
+	storeState(state);
 }
 
 void convertToLowercase(char text[]) {
@@ -91,4 +93,36 @@ void convertToLowercase(char text[]) {
       }
       c++;
    }
+}
+
+void storeState (char currentState[]) {
+    char readState[3];
+    int alreadyRegistered = 0;
+
+    FILE *statesFile;
+    statesFile = fopen("states.txt", "a+");
+
+    while(fgets(readState, sizeof(readState), statesFile) != NULL) {
+        printf("%s", readState);
+        if (strcmp(readState, currentState) == 0) {
+            printf("\neh igual\n");
+            alreadyRegistered = 1;
+        } else {
+            printf("\nn eh igual.\n");
+            //Nada a fazer.
+        }
+    }
+
+    if (alreadyRegistered) {
+        printf("\nEste Estado ja cadastrado.\n");
+    } else {
+        // Escrever no arquivo
+        printf("\nEstado cadastrado com sucesso!\n");
+    }
+
+    printf("\nAperte ENTER para voltar ao menu.\n");
+
+    fgetc(stdin);
+    fclose(statesFile);
+
 }
