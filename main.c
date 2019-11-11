@@ -81,7 +81,14 @@ registerState()
 
 	convertToLowercase(state);
 
-	storeState(state);
+    if (stateValidation(state) == 1) {
+        storeState(state);
+    } else {
+        printf("\nO Estado informado nao existe.\n");
+    }
+
+    printf("\nAperte ENTER para voltar ao menu.\n");
+    fgetc(stdin);
 }
 
 void convertToLowercase(char text[]) {
@@ -93,6 +100,26 @@ void convertToLowercase(char text[]) {
       }
       c++;
    }
+}
+
+int stateValidation(char currentState[]) {
+    char readState[3];
+    FILE *validationFile;
+
+    validationFile = fopen("statesValidation.txt", "r");
+    if (validationFile == NULL) {
+        printf("\nArquivo de validação de Estados não existe.\n");
+        exit(1);
+    }
+
+    while(fgets(readState, sizeof(readState), validationFile) != NULL) {
+        if (strcmp(readState, currentState) == 0) {
+            return 1;
+        } else {
+            //Nada a fazer.
+        }
+    }
+    return 0;
 }
 
 void storeState (char currentState[]) {
@@ -117,9 +144,6 @@ void storeState (char currentState[]) {
         printf("\nEstado cadastrado com sucesso!\n");
     }
 
-    printf("\nAperte ENTER para voltar ao menu.\n");
-
-    fgetc(stdin);
     fclose(statesFile);
 
 }
