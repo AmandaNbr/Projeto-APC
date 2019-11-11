@@ -103,20 +103,17 @@ void storeState (char currentState[]) {
     statesFile = fopen("states.txt", "a+");
 
     while(fgets(readState, sizeof(readState), statesFile) != NULL) {
-        printf("%s", readState);
         if (strcmp(readState, currentState) == 0) {
-            printf("\neh igual\n");
             alreadyRegistered = 1;
         } else {
-            printf("\nn eh igual.\n");
             //Nada a fazer.
         }
     }
 
     if (alreadyRegistered) {
-        printf("\nEste Estado ja cadastrado.\n");
+        printf("\nEste Estado ja esta cadastrado.\n");
     } else {
-        // Escrever no arquivo
+        fprintf(statesFile, "%s\n", currentState);
         printf("\nEstado cadastrado com sucesso!\n");
     }
 
