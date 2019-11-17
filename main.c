@@ -43,7 +43,7 @@ int chooseOption()
         registerState();
         return 1;
     case 2:
-
+        registerCourse();
         return 2;
     case 3:
 
@@ -75,16 +75,25 @@ registerState()
 {
     printf("Informe a sigla da Unidade Federativa a ser cadastrada:\n");
 
-    char state[3];
-	fgets(state, 3, stdin);
+    char receivedState[3];
+	fgets(receivedState, 5, stdin);
 	fflush(stdin);
 
-	convertToLowercase(state);
+    if (lengthValidation(receivedState) == 1) {
+        char state[3];
+        state[0] = receivedState[0];
+        state[1] = receivedState[1];
+        state[2] = '\0';
 
-    if (stateValidation(state) == 1) {
-        storeState(state);
+        convertToLowercase(state);
+
+        if (stateValidation(state) == 1) {
+            storeState(state);
+        } else {
+            printf("\nO Estado informado nao existe.\n");
+        }
     } else {
-        printf("\nO Estado informado nao existe.\n");
+        printf("\nSigla de Estado invalida.\n");
     }
 
     printf("\nAperte ENTER para voltar ao menu.\n");
@@ -122,6 +131,16 @@ int stateValidation(char currentState[]) {
     return 0;
 }
 
+int lengthValidation(char currentState[]) {
+	int receivedStateLength = strlen(currentState);
+
+	if (receivedStateLength == 3){
+        return 1;
+	} else {
+        return 0;
+	}
+}
+
 void storeState (char currentState[]) {
     char readState[3];
     int alreadyRegistered = 0;
@@ -145,5 +164,41 @@ void storeState (char currentState[]) {
     }
 
     fclose(statesFile);
+}
 
+void registerCourse() {
+    printf("Informe o curso a ser cadastrado:\n");
+
+    char course[100];
+	fgets(course, 100, stdin);
+	fflush(stdin);
+
+	storeCourse();
+}
+
+void storeCourse (char currentCourse[]) {
+    char readCourse[100];
+    int alreadyRegistered = 0;
+
+    FILE *coursesFile;
+    coursesFile = fopen("courses.txt", "a+");
+
+    while(fgets(readCourse, sizeof(readCourse), coursesFile) != NULL) {
+        if (strcmp(readCourse, currentCourse) == 0) {
+            alreadyRegistered = 1;
+        } else {
+            //Nada a fazer.
+        }
+    }
+
+    if (alreadyRegistered) {
+        printf("\nEste curso ja esta cadastrado.\n");
+    } else {
+        fprintf(coursesFile, "%s\n", currentCourse);
+        printf("\nCurso cadastrado com sucesso!\n");
+    }
+
+    fclose(coursesFile);
+    printf("\nAperte ENTER para voltar ao menu.\n");
+    fgetc(stdin);
 }
