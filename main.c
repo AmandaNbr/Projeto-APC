@@ -173,7 +173,12 @@ void registerCourse() {
 	fgets(course, 100, stdin);
 	fflush(stdin);
 
-	storeCourse();
+	convertToLowercase(course);
+
+	storeCourse(course);
+
+    printf("\nAperte ENTER para voltar ao menu.\n");
+    fgetc(stdin);
 }
 
 void storeCourse (char currentCourse[]) {
@@ -194,11 +199,9 @@ void storeCourse (char currentCourse[]) {
     if (alreadyRegistered) {
         printf("\nEste curso ja esta cadastrado.\n");
     } else {
-        fprintf(coursesFile, "%s\n", currentCourse);
+        fprintf(coursesFile, "%s", currentCourse);
         printf("\nCurso cadastrado com sucesso!\n");
     }
 
     fclose(coursesFile);
-    printf("\nAperte ENTER para voltar ao menu.\n");
-    fgetc(stdin);
 }
