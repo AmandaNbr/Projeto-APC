@@ -1,5 +1,23 @@
 # depslib dependency file v1.0
-1574025772 source:c:\users\aleteia\documents\projeto apc\projeto\main.c
+1574056782 source:c:\users\aleteia\documents\projeto apc\projeto\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"states-handler.c"
+	"courses-handler.c"
+	"utils.c"
+
+1574057221 c:\users\aleteia\documents\projeto apc\projeto\states-handler.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1574059062 c:\users\aleteia\documents\projeto apc\projeto\utils.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1574059073 c:\users\aleteia\documents\projeto apc\projeto\courses-handler.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
