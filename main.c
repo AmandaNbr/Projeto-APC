@@ -3,7 +3,9 @@
 #include <string.h>
 #include "states-handler.c"
 #include "courses-handler.c"
+#include "people-handler.c"
 #include "utils.c"
+
 
 int main() {
     int option;
@@ -46,7 +48,7 @@ int chooseOption() {
         registerCourse();
         return 2;
     case 3:
-
+        registerPerson();
         return 3;
     case 4:
 

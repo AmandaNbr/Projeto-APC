@@ -27,8 +27,6 @@ void storeCourse (char currentCourse[]) {
     coursesFile = fopen("courses.txt", "a+");
 
     while(fgets(readCourse, sizeof(readCourse), coursesFile) != NULL) {
-            printf("%s readcourse\n", readCourse);
-            printf("%s current\n", currentCourse);
         if (strcmp(readCourse, currentCourse) == 0) {
             alreadyRegistered = 1;
         } else {
