@@ -2,6 +2,12 @@
 #include <stdlib.h>
 #include <string.h>
 
+void registerState();
+int stateValidation(char currentState[]);
+int lengthValidation(char currentState[]);
+void storeState (char currentState[]);
+
+
 void registerState() {
     printf("Informe a sigla da Unidade Federativa a ser cadastrada:\n");
 

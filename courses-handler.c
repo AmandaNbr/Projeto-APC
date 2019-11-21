@@ -2,6 +2,10 @@
 #include <stdlib.h>
 #include <string.h>
 
+void registerCourse();
+void storeCourse (char currentCourse[]);
+
+
 void registerCourse() {
     printf("Informe o curso a ser cadastrado:\n");
 

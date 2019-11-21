@@ -3,6 +3,9 @@
 #include <string.h>
 //nome completo, sexo, data de nascimento, curso desejado e unidade da federação
 
+void registerPerson();
+void nameValidation();
+
 struct Person {
     char fullName[100];
     char gender;
@@ -11,19 +14,23 @@ struct Person {
     char state[3];
 };
 
+void getName(struct Person *);
+
 void registerPerson() {
-    struct Person newPerson;
+    struct Person *newPerson;
+    newPerson = (struct Person*) malloc(sizeof(struct Person));
 
-    getName(&newPerson.state);
-
-    printf("\n%s\n", newPerson.state);
+    getName(newPerson);
+    printf("\n%s\n", newPerson->fullName);
 
     printf("\nAperte ENTER para voltar ao menu.\n");
     fgetc(stdin);
+    free(newPerson);
 }
 
-void getName(char *state) {
-    state = "df";
+void getName(struct Person *newPerson) {
+    fgets(newPerson->fullName, 100, stdin);
+    fflush(stdin);
 }
 
 void nameValidation() {

@@ -6,6 +6,8 @@
 #include "people-handler.c"
 #include "utils.c"
 
+void showMenu();
+int chooseOption();
 
 int main() {
     int option;
