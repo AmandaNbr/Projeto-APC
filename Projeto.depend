@@ -28,3 +28,32 @@
 	<stdlib.h>
 	<string.h>
 
+1574295862 source:d:\testes_c\projeto\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"states-handler.c"
+	"courses-handler.c"
+	"people-handler.c"
+	"utils.c"
+
+1574293351 d:\testes_c\projeto\states-handler.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1574305363 d:\testes_c\projeto\courses-handler.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1574305831 d:\testes_c\projeto\people-handler.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1574304876 d:\testes_c\projeto\utils.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+

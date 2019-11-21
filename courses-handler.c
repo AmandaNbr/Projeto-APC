@@ -17,7 +17,11 @@ void registerCourse() {
 
 	convertToLowercase(course);
 
-	storeCourse(course);
+	if (stringIsEmpty(course)){
+        printf("Curso nulo, informe um curso valido.\n");
+	} else {
+        storeCourse(course);
+	}
 
     printf("\nAperte ENTER para voltar ao menu.\n");
     fgetc(stdin);

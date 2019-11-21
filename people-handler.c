@@ -29,10 +29,18 @@ void registerPerson() {
 }
 
 void getName(struct Person *newPerson) {
-    fgets(newPerson->fullName, 100, stdin);
-    fflush(stdin);
-}
+    do{
+        fgets(newPerson->fullName, 100, stdin);
+        fflush(stdin);
 
-void nameValidation() {
+        convertToLowercase(newPerson->fullName);
+        trim(newPerson->fullName, NULL);
 
+        if (stringIsEmpty(newPerson->fullName)){
+            printf("Nome nulo, informe um nome valido.\n");
+        } else {
+            // Nothing to do;
+        }
+
+    }while(stringIsEmpty(newPerson->fullName));
 }

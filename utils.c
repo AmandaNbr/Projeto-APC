@@ -6,6 +6,8 @@ char *rtrim(char *str, const char *seps);
 char *ltrim(char *str, const char *seps);
 void trim(char *str, const char *seps);
 void convertToLowercase(char text[]);
+int stringIsEmpty(char *stringChecked);
+
 
 void convertToLowercase(char text[]) {
    int c = 0;
@@ -51,4 +53,12 @@ char *rtrim(char *str, const char *seps) {
 
 void trim(char *str, const char *seps) {
     ltrim(rtrim(str, seps), seps);
+}
+
+int stringIsEmpty(char *stringChecked) {
+    if (stringChecked[0] == '\0'){
+        return 1;
+	} else {
+	    return 0;
+	}
 }
