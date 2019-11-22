@@ -167,3 +167,44 @@ int birthdateValitation (int *birthdate) {
     //It's all ok
     return 0;
 }
+
+void getWantedCourse(struct Person *newPerson){
+    int stringIsEmptyValidation = 0, alreadyExistsValidation = 0;
+
+	do {
+        fgets(newPerson->wantedCourse, 100, stdin);
+        fflush(stdin);
+
+        convertToLowercase(newPerson->wantedCourse);
+        trim(newPerson->wantedCourse, NULL);
+
+        stringIsEmptyValidation = stringIsEmpty(newPerson->wantedCourse);
+        if (stringIsEmptyValidation){
+            printf("Curso nulo, informe um curso valido.\n");
+        } else {
+            alreadyExistsValidation = wantedCouseValidation(newPerson->wantedCourse);
+            if (alreadyExistsValidation){
+                printf("Curso nao cadastrado.\n");
+            } else {
+                //Nothing to do
+            }
+        }
+	} while (alreadyExistsValidation || stringIsEmptyValidation);
+}
+
+int wantedCouseValidation (char *wantedCouse) {
+    char readCourse[100];
+
+    FILE *coursesFile;
+    coursesFile = fopen("courses.txt", "r");
+
+    while(fgets(readCourse, sizeof(readCourse), coursesFile) != NULL) {
+        trim(readCourse, NULL);
+        if (strcmp(readCourse, wantedCouse) == 0) {
+            return 0;
+        } else {
+            //Nada a fazer.
+        }
+    }
+    return 1;
+}

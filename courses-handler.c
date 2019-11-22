@@ -35,6 +35,7 @@ void storeCourse (char currentCourse[]) {
     coursesFile = fopen("courses.txt", "a+");
 
     while(fgets(readCourse, sizeof(readCourse), coursesFile) != NULL) {
+        trim(readCourse, NULL);
         if (strcmp(readCourse, currentCourse) == 0) {
             alreadyRegistered = 1;
         } else {
@@ -45,7 +46,7 @@ void storeCourse (char currentCourse[]) {
     if (alreadyRegistered) {
         printf("\nEste curso ja esta cadastrado.\n");
     } else {
-        fprintf(coursesFile, "\n%s", currentCourse);
+        fprintf(coursesFile, "%s\n", currentCourse);
         printf("\nCurso cadastrado com sucesso!\n");
     }
 
