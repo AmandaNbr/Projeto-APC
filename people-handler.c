@@ -34,6 +34,9 @@ void registerPerson() {
     printf("\nInforme o curso desejado:\n");
     getWantedCourse(newPerson);
 
+    printf("\nInforme o Estado:\n");
+    getState(newPerson);
+
     printf("\nAperte ENTER para voltar ao menu.\n");
     fgetc(stdin);
     free(newPerson);;
@@ -168,7 +171,7 @@ int birthdateValitation (int *birthdate) {
     return 0;
 }
 
-void getWantedCourse(struct Person *newPerson){
+void getWantedCourse(struct Person *newPerson) {
     int stringIsEmptyValidation = 0, alreadyExistsValidation = 0;
 
 	do {
@@ -201,6 +204,46 @@ int wantedCouseValidation (char *wantedCouse) {
     while(fgets(readCourse, sizeof(readCourse), coursesFile) != NULL) {
         trim(readCourse, NULL);
         if (strcmp(readCourse, wantedCouse) == 0) {
+            return 0;
+        } else {
+            //Nada a fazer.
+        }
+    }
+    return 1;
+}
+
+void getState (struct Person *newPerson) {
+    int stringIsEmptyValidation = 0, alreadyExistsValidation = 0;
+
+	do {
+        fgets(newPerson->state, 3, stdin);
+        fflush(stdin);
+
+        convertToLowercase(newPerson->state);
+        trim(newPerson->state, NULL);
+
+        stringIsEmptyValidation = stringIsEmpty(newPerson->state);
+        if (stringIsEmptyValidation){
+            printf("Estado nulo, informe um Estado valido.\n");
+        } else {
+            alreadyExistsValidation = personStateValidation(newPerson->state);
+            if (alreadyExistsValidation){
+                printf("Estado nao cadastrado.\n");
+            } else {
+                //Nothing to do
+            }
+        }
+	} while (alreadyExistsValidation || stringIsEmptyValidation);
+}
+
+int personStateValidation(char *state) {
+    char readState[3];
+
+    FILE *statesFile;
+    statesFile = fopen("states.txt", "r");
+
+    while(fgets(readState, sizeof(readState), statesFile) != NULL) {
+        if (strcmp(readState, state) == 0) {
             return 0;
         } else {
             //Nada a fazer.

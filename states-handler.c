@@ -14,7 +14,6 @@ void registerState() {
     char receivedState[3];
 	fgets(receivedState, 5, stdin);
 	fflush(stdin);
-	printf("\n%d\n", strlen(receivedState));
 
     if (lengthValidation(receivedState) == 1) {
         char state[3];
