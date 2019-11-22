@@ -37,6 +37,8 @@ void registerPerson() {
     printf("\nInforme o Estado:\n");
     getState(newPerson);
 
+    storePerson(newPerson);
+
     printf("\nAperte ENTER para voltar ao menu.\n");
     fgetc(stdin);
     free(newPerson);;
@@ -250,4 +252,13 @@ int personStateValidation(char *state) {
         }
     }
     return 1;
+}
+
+void storePerson (struct Person *newPerson) {
+    FILE *personFile;
+    personFile = fopen("people.txt", "a+");
+
+    fprintf(personFile, "%s-%s-%d/%d/%d-%s-%s\n", newPerson->fullName, newPerson->gender, newPerson->birthdate[0], newPerson->birthdate[1], newPerson->birthdate[2], newPerson->wantedCourse, newPerson->state);
+
+    fclose(personFile);
 }
