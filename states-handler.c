@@ -5,7 +5,7 @@
 void registerState();
 int stateValidation(char currentState[]);
 int lengthValidation(char currentState[]);
-void storeState (char currentState[]);
+void storeState(char currentState[]);
 
 
 void registerState() {
@@ -66,7 +66,7 @@ int lengthValidation(char currentState[]) {
 	}
 }
 
-void storeState (char currentState[]) {
+void storeState(char currentState[]) {
     char readState[3];
     int alreadyRegistered = 0;
 

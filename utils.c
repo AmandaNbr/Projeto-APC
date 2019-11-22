@@ -62,3 +62,4 @@ int stringIsEmpty(char *stringChecked) {
 	    return 0;
 	}
 }
+

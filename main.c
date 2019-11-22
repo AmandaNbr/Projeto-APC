@@ -4,6 +4,7 @@
 #include "states-handler.c"
 #include "courses-handler.c"
 #include "people-handler.c"
+#include "consults-handler.c"
 #include "utils.c"
 
 void showMenu();
@@ -53,7 +54,7 @@ int chooseOption() {
         registerPerson();
         return 3;
     case 4:
-
+        listPersonByState();
         return 4;
     case 5:
 
@@ -65,7 +66,7 @@ int chooseOption() {
 
         return 7;
     case 8:
-
+        //Nothing to do
         return 8;
     default:
         printf("Opcao invalida. (Aperte ENTER para voltar ao menu)\n");

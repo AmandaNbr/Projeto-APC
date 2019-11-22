@@ -1,29 +1,30 @@
 # depslib dependency file v1.0
-1574303055 source:c:\users\aleteia\documents\projeto apc\projeto\main.c
+1574451040 source:c:\users\aleteia\documents\projeto apc\projeto\main.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
 	"states-handler.c"
 	"courses-handler.c"
 	"people-handler.c"
+	"consults-handler.c"
 	"utils.c"
 
-1574400405 c:\users\aleteia\documents\projeto apc\projeto\states-handler.c
+1574450592 c:\users\aleteia\documents\projeto apc\projeto\states-handler.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
 
-1574306581 c:\users\aleteia\documents\projeto apc\projeto\utils.c
+1574448134 c:\users\aleteia\documents\projeto apc\projeto\utils.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
 
-1574397833 c:\users\aleteia\documents\projeto apc\projeto\courses-handler.c
+1574450570 c:\users\aleteia\documents\projeto apc\projeto\courses-handler.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
 
-1574402421 c:\users\aleteia\documents\projeto apc\projeto\people-handler.c
+1574451703 c:\users\aleteia\documents\projeto apc\projeto\people-handler.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -53,6 +54,11 @@
 	<string.h>
 
 1574304876 d:\testes_c\projeto\utils.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1574452016 c:\users\aleteia\documents\projeto apc\projeto\consults-handler.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>

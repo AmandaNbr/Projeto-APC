@@ -3,7 +3,7 @@
 #include <string.h>
 
 void registerCourse();
-void storeCourse (char currentCourse[]);
+void storeCourse(char currentCourse[]);
 
 
 void registerCourse() {
@@ -27,7 +27,7 @@ void registerCourse() {
     fgetc(stdin);
 }
 
-void storeCourse (char currentCourse[]) {
+void storeCourse(char currentCourse[]) {
     char readCourse[100];
     int alreadyRegistered = 0;
 
