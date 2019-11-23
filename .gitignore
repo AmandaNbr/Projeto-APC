@@ -56,4 +56,6 @@ dkms.conf
 # Temporary files
 states.txt
 courses.txt
+people.txt
+courses.txt
 students.txt

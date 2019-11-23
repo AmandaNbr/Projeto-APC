@@ -7,7 +7,31 @@ char *ltrim(char *str, const char *seps);
 void trim(char *str, const char *seps);
 void convertToLowercase(char text[]);
 int stringIsEmpty(char *stringChecked);
+void printPerson(struct Person *person);
+void formatPersonStructData(struct Person *readPerson, char *line);
 
+void formatPersonStructData(struct Person *readPerson, char *line){
+    sscanf(line, "%[^|]|%[^|]|%d/%d/%d|%[^|]|%[^\n]\n",
+           readPerson->fullName,
+           readPerson->gender,
+           &readPerson->birthdate[0],
+           &readPerson->birthdate[1],
+           &readPerson->birthdate[2],
+           readPerson->wantedCourse,
+           readPerson->state);
+}
+
+void printPerson(struct Person *person) {
+    printf("\n           ---           \n");
+    printf("Nome Completo: %s\nGenero: %s\nData de Nascimento: %d/%d/%d\nCurso Desejado: %s\nEstado: %s\n",
+           person->fullName,
+           person->gender,
+           person->birthdate[0],
+           person->birthdate[1],
+           person->birthdate[2],
+           person->wantedCourse,
+           person->state);
+}
 
 void convertToLowercase(char text[]) {
    int c = 0;
@@ -62,4 +86,3 @@ int stringIsEmpty(char *stringChecked) {
 	    return 0;
 	}
 }
-

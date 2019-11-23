@@ -137,7 +137,8 @@ int birthdateValitation(int *birthdate) {
     }
 
     //Validate months with 31 days
-    if (birthdate[1] == 1 || birthdate[1] == 3 || birthdate[1] == 5 || birthdate[1] == 7 || birthdate[1] ==  8 || birthdate[1] == 10 || birthdate[1] == 12) {
+    if (birthdate[1] == 1 || birthdate[1] == 3 || birthdate[1] == 5 ||
+        birthdate[1] == 7 || birthdate[1] ==  8 || birthdate[1] == 10 || birthdate[1] == 12) {
         if (birthdate[0] <= 0 || birthdate[0] >31) {
             return 1;
         }
@@ -209,18 +210,18 @@ int wantedCouseValidation(char *wantedCouse) {
 }
 
 void getState(struct Person *newPerson) {
-    int stringIsEmptyValidation = 0, alreadyExistsValidation = 0;
+    int stringLenghtValidation = 0, alreadyExistsValidation = 0;
 
 	do {
-        fgets(newPerson->state, 3, stdin);
+        fgets(newPerson->state, 5, stdin);
         fflush(stdin);
 
         convertToLowercase(newPerson->state);
         trim(newPerson->state, NULL);
 
-        stringIsEmptyValidation = stringIsEmpty(newPerson->state);
-        if (stringIsEmptyValidation){
-            printf("Estado nulo, informe um Estado valido.\n");
+        stringLenghtValidation = stateLengthValidation(newPerson->state);
+        if (!stringLenghtValidation){
+            printf("Sigla de Estado invalida, informe uma sigla valida.\n");
         } else {
             alreadyExistsValidation = alreadyRegisteredStateValidation(newPerson->state);
             if (alreadyExistsValidation){
@@ -229,7 +230,7 @@ void getState(struct Person *newPerson) {
                 //Nothing to do
             }
         }
-	} while (alreadyExistsValidation || stringIsEmptyValidation);
+	} while (alreadyExistsValidation || !stringLenghtValidation);
 }
 
 int alreadyRegisteredStateValidation(char *state) {
@@ -252,7 +253,14 @@ void storePerson(struct Person *newPerson) {
     FILE *personFile;
     personFile = fopen("people.txt", "a+");
 
-    fprintf(personFile, "%s|%s|%d/%d/%d|%s|%s\n", newPerson->fullName, newPerson->gender, newPerson->birthdate[0], newPerson->birthdate[1], newPerson->birthdate[2], newPerson->wantedCourse, newPerson->state);
+    fprintf(personFile, "%s|%s|%d/%d/%d|%s|%s\n",
+            newPerson->fullName,
+            newPerson->gender,
+            newPerson->birthdate[0],
+            newPerson->birthdate[1],
+            newPerson->birthdate[2],
+            newPerson->wantedCourse,
+            newPerson->state);
 
     fclose(personFile);
 }

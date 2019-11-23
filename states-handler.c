@@ -4,7 +4,7 @@
 
 void registerState();
 int stateValidation(char currentState[]);
-int lengthValidation(char currentState[]);
+int stateLengthValidation(char currentState[]);
 void storeState(char currentState[]);
 
 
@@ -15,21 +15,17 @@ void registerState() {
 	fgets(receivedState, 5, stdin);
 	fflush(stdin);
 
-    if (lengthValidation(receivedState) == 1) {
-        char state[3];
-        state[0] = receivedState[0];
-        state[1] = receivedState[1];
-        state[2] = '\0';
+    trim(receivedState, NULL);
+    convertToLowercase(receivedState);
 
-        convertToLowercase(state);
-
-        if (stateValidation(state) == 1) {
-            storeState(state);
+    if (stateLengthValidation(receivedState) == 1) {
+        if (stateValidation(receivedState) == 1) {
+            storeState(receivedState);
         } else {
-            printf("\nO Estado informado nao existe.\n");
+            printf("\nO Estado informado nao existe, informe uma sigla valida.\n");
         }
     } else {
-        printf("\nSigla de Estado invalida.\n");
+        printf("\nSigla de Estado invalida, informe uma sigla valida.\n");
     }
 
     printf("\nAperte ENTER para voltar ao menu.\n");
@@ -56,10 +52,10 @@ int stateValidation(char currentState[]) {
     return 0;
 }
 
-int lengthValidation(char currentState[]) {
+int stateLengthValidation(char currentState[]) {
 	int receivedStateLength = strlen(currentState);
 
-	if (receivedStateLength == 3){
+	if (receivedStateLength == 2){
         return 1;
 	} else {
         return 0;

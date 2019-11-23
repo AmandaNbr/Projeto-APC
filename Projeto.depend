@@ -9,12 +9,12 @@
 	"consults-handler.c"
 	"utils.c"
 
-1574450592 c:\users\aleteia\documents\projeto apc\projeto\states-handler.c
+1574482542 c:\users\aleteia\documents\projeto apc\projeto\states-handler.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
 
-1574448134 c:\users\aleteia\documents\projeto apc\projeto\utils.c
+1574480048 c:\users\aleteia\documents\projeto apc\projeto\utils.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -24,7 +24,7 @@
 	<stdlib.h>
 	<string.h>
 
-1574451703 c:\users\aleteia\documents\projeto apc\projeto\people-handler.c
+1574482623 c:\users\aleteia\documents\projeto apc\projeto\people-handler.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -58,7 +58,7 @@
 	<stdlib.h>
 	<string.h>
 
-1574452016 c:\users\aleteia\documents\projeto apc\projeto\consults-handler.c
+1574482983 c:\users\aleteia\documents\projeto apc\projeto\consults-handler.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
