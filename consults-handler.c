@@ -152,7 +152,9 @@ void printPersonByName(char* readName){
 
     while(fgets(line, sizeof(line), personFile) != NULL) {
         formatPersonStructData(readPerson, line);
-        if (strcmp(readPerson->fullName, readName) == 0 || strstr(readPerson->fullName, readName) == 1) {
+        if (strstr(readPerson->fullName, readName) == NULL) {
+            //Nothing to do
+        } else {
             printPerson(readPerson);
             foundPerson = 1;
         }
