@@ -35,7 +35,7 @@ int validateStateToList(char* readState){
     int stringLengValidation = 0, alreadyExistsValidation = 0;
 
     stringLengValidation = stateLengthValidation(readState);
-    if (stringLengValidation){
+    if (!stringLengValidation){
         printf("\nSigla de Estado invalida, informe uma sigla valida.\n");
         return 0;
     } else {
@@ -67,5 +67,51 @@ void printPersonByState(char *readState) {
     }
     if (!foundPerson) {
         printf("\nNao existe nenhuma pessoa cadastrada para esse Estado.\n");
+    }
+}
+
+void listPersonByCourse() {
+    char readCourse[100];
+
+    getCourseToList(readCourse);
+
+    if(stringIsEmpty(readCourse)){
+        printf("\nNenhuma pessoa relacionada a esse curso.\n");
+    }else{
+        printPersonByCourse(readCourse);
+    }
+
+    printf("\nAperte ENTER para voltar ao menu.\n");
+    fgetc(stdin);
+}
+
+void getCourseToList(char* readCourse) {
+    printf("Informe o curso: ");
+
+    fgets(readCourse, 100, stdin);
+    fflush(stdin);
+
+    convertToLowercase(readCourse);
+    trim(readCourse, NULL);
+}
+
+void printPersonByCourse(char* readCourse) {
+    char line[256];
+    int foundPerson = 0;
+    struct Person *readPerson;
+    readPerson = (struct Person*) malloc(sizeof(struct Person));
+
+    FILE *personFile;
+    personFile = fopen("people.txt", "r");
+
+    while(fgets(line, sizeof(line), personFile) != NULL) {
+        formatPersonStructData(readPerson, line);
+        if (strcmp(readPerson->wantedCourse, readCourse) == 0) {
+            printPerson(readPerson);
+            foundPerson = 1;
+        }
+    }
+    if (!foundPerson) {
+        printf("\nNao existe nenhuma pessoa cadastrada para esse curso.\n");
     }
 }

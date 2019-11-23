@@ -57,7 +57,7 @@ int chooseOption() {
         listPersonByState();
         return 4;
     case 5:
-
+        listPersonByCourse();
         return 5;
     case 6:
 
