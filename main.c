@@ -63,7 +63,7 @@ int chooseOption() {
         consultPerson();
         return 6;
     case 7:
-
+        generateRelatory();
         return 7;
     case 8:
         //Nothing to do

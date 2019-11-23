@@ -163,3 +163,58 @@ void printPersonByName(char* readName){
         printf("\nNome nao cadastrado.\n");
     }
 }
+
+void generateRelatory() {
+
+    showOptionMenu();
+
+    getOption();
+
+    printf("\nAperte ENTER para voltar ao menu.\n");
+    fgetc(stdin);
+}
+
+void showOptionMenu() {
+    system("cls");
+    printf("Escolha uma das opcoes abaixo:\n");
+    printf("1 - Percentual de pessoas de 15 a 20 anos.\n");
+    printf("2 - Percentual de pessoas de 21 a 25 anos.\n");
+    printf("3 - Percentual de pessoas de 26 a 30 anos.\n");
+    printf("4 - Percentual de pessoas acima de 30 anos.\n");
+    printf("5 - Percentual de pessoas de sexo feminino.\n");
+    printf("6 - Percentual de pessoas de sexo masculino.\n");
+}
+
+void getOption() {
+int option;
+
+    scanf("%d", &option);
+    fflush(stdin);
+    system("cls");
+
+    switch(option)
+    {
+    case 1:
+
+        return 1;
+    case 2:
+
+        return 2;
+    case 3:
+
+        return 3;
+    case 4:
+
+        return 4;
+    case 5:
+
+        return 5;
+    case 6:
+
+        return 6;
+    default:
+        printf("Opcao invalida.\n");
+        fflush(stdin);
+        return 0;
+    }
+}
