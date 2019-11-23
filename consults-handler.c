@@ -115,3 +115,49 @@ void printPersonByCourse(char* readCourse) {
         printf("\nNao existe nenhuma pessoa cadastrada para esse curso.\n");
     }
 }
+
+void consultPerson(){
+    char readName[100];
+
+    getNameToConsult(readName);
+
+    if(stringIsEmpty(readName)){
+        printf("Nome nao cadastrado.\\n");
+    }else{
+        printPersonByName(readName);
+    }
+
+    printf("\nAperte ENTER para voltar ao menu.\n");
+    fgetc(stdin);
+}
+
+void getNameToConsult(char* readName) {
+    printf("Informe o Nome: ");
+
+    fgets(readName, 100, stdin);
+    fflush(stdin);
+
+    convertToLowercase(readName);
+    trim(readName, NULL);
+}
+
+void printPersonByName(char* readName){
+    char line[256];
+    int foundPerson = 0;
+    struct Person *readPerson;
+    readPerson = (struct Person*) malloc(sizeof(struct Person));
+
+    FILE *personFile;
+    personFile = fopen("people.txt", "r");
+
+    while(fgets(line, sizeof(line), personFile) != NULL) {
+        formatPersonStructData(readPerson, line);
+        if (strcmp(readPerson->fullName, readName) == 0 || strstr(readPerson->fullName, readName) == 1) {
+            printPerson(readPerson);
+            foundPerson = 1;
+        }
+    }
+    if (!foundPerson) {
+        printf("\nNome nao cadastrado.\n");
+    }
+}

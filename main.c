@@ -60,7 +60,7 @@ int chooseOption() {
         listPersonByCourse();
         return 5;
     case 6:
-
+        consultPerson();
         return 6;
     case 7:
 

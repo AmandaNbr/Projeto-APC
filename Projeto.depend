@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1574485277 source:c:\users\aleteia\documents\projeto apc\projeto\main.c
+1574524228 source:c:\users\aleteia\documents\projeto apc\projeto\main.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -58,7 +58,7 @@
 	<stdlib.h>
 	<string.h>
 
-1574487777 c:\users\aleteia\documents\projeto apc\projeto\consults-handler.c
+1574526352 c:\users\aleteia\documents\projeto apc\projeto\consults-handler.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
