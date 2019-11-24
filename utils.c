@@ -35,15 +35,15 @@ void deletePerson(char *lineToBeDeleted) {
     }
     fclose(personFile);
     fclose(replica);
-    if (remove("C:\\Users\\Aleteia\\Documents\\Projeto APC\\people.txt") == 0) {
+    if (remove("people.txt") == 0) {
         printf("\nDeletou\n");
     } else {
-        printf("\nn deu de deletar\n");
+        printf("\nErro deletar\n");
     }
     if (rename("replica.txt", "people.txt") == 0) {
-        printf("\nRenomeu\n");
+        printf("\nRenomeou\n");
     } else {
-        printf("\nn deu de renomear\n");
+        printf("\Erro renomear\n");
     }
 }
 

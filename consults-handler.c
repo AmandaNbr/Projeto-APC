@@ -308,9 +308,9 @@ void calculatePercentageGender(char *gender) {
     if (!percentagePersonMale && !percentagePersonFemale) {
         printf("\nNao existe pessoa cadastrada com esse sexo.\n");
     } else if (gender == "m") {
-        printf("A porcentagem de pessoas cadastradas de sexo masculino: %.2f%%\n",  (percentagePersonMale / totalPerson)*100);
+        printf("A porcentagem de pessoas cadastradas de sexo masculino e de %.2f%%\n",  (percentagePersonMale / totalPerson)*100);
     } else if (gender == "f") {
-        printf("A porcentagem de pessoas cadastradas de sexo feminino: %.2f%%\n",  (percentagePersonFemale / totalPerson)*100);
+        printf("A porcentagem de pessoas cadastradas de sexo feminino e de %.2f%%\n",  (percentagePersonFemale / totalPerson)*100);
     }
     fclose(personFile);
 }

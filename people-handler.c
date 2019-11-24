@@ -127,7 +127,7 @@ void getBirthdate(struct Person *newPerson) {
 
 int birthdateValitation(int *birthdate) {
     //Validate year
-    if (birthdate[2] <= 0 || birthdate[2] >= 2020){
+    if (birthdate[2] <= 1899 || birthdate[2] >= 2020){
         return 1;
     }
 
@@ -263,6 +263,8 @@ void storePerson(struct Person *newPerson) {
             newPerson->birthdate[2],
             newPerson->wantedCourse,
             newPerson->state);
+
+    fprintf("\nPessoa cadastrada com sucesso!\n")
 
     fclose(personFile);
 }
