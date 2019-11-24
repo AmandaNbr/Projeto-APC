@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <time.h>
 #include "states-handler.c"
 #include "courses-handler.c"
 #include "people-handler.c"

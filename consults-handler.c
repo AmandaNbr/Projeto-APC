@@ -1,7 +1,3 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-
 void getStateToList(char* readState);
 int validateStateToList(char* readState);
 void printPersonByState(char *readState);

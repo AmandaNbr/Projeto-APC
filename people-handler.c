@@ -1,7 +1,3 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-
 struct Person;
 void registerPerson();
 void getName(struct Person *newPerson);
@@ -264,7 +260,7 @@ void storePerson(struct Person *newPerson) {
             newPerson->wantedCourse,
             newPerson->state);
 
-    fprintf("\nPessoa cadastrada com sucesso!\n")
+    printf("\nPessoa cadastrada com sucesso!\n");
 
     fclose(personFile);
 }

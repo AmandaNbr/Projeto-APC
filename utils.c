@@ -1,8 +1,3 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <time.h>
-
 int findAge(int birthdate[3]);
 char *rtrim(char *str, const char *seps);
 char *ltrim(char *str, const char *seps);
@@ -43,7 +38,7 @@ void deletePerson(char *lineToBeDeleted) {
     if (rename("replica.txt", "people.txt") == 0) {
         printf("\nRenomeou\n");
     } else {
-        printf("\Erro renomear\n");
+        printf("\nErro renomear\n");
     }
 }
 
