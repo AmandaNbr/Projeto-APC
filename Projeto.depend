@@ -14,10 +14,11 @@
 	<stdlib.h>
 	<string.h>
 
-1574480048 c:\users\aleteia\documents\projeto apc\projeto\utils.c
+1574614623 c:\users\aleteia\documents\projeto apc\projeto\utils.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
+	<time.h>
 
 1574450570 c:\users\aleteia\documents\projeto apc\projeto\courses-handler.c
 	<stdio.h>
@@ -58,7 +59,7 @@
 	<stdlib.h>
 	<string.h>
 
-1574531910 c:\users\aleteia\documents\projeto apc\projeto\consults-handler.c
+1574619914 c:\users\aleteia\documents\projeto apc\projeto\consults-handler.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>

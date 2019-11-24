@@ -167,7 +167,7 @@ void printPersonByName(char* readName){
 void generateRelatory() {
 
     showOptionMenu();
-
+    printf("\n");
     getOption();
 
     printf("\nAperte ENTER para voltar ao menu.\n");
@@ -186,7 +186,7 @@ void showOptionMenu() {
 }
 
 void getOption() {
-int option;
+    int option;
 
     scanf("%d", &option);
     fflush(stdin);
@@ -195,26 +195,55 @@ int option;
     switch(option)
     {
     case 1:
-
-        return 1;
+        calculatePercentageAge(15, 20);
+        break;
     case 2:
-
-        return 2;
+        calculatePercentageAge(21, 25);
+        break;
     case 3:
-
-        return 3;
+        calculatePercentageAge(26, 30);
+        break;
     case 4:
-
-        return 4;
+        calculatePercentageAge(31, 100);
+        break;
     case 5:
-
-        return 5;
+//        calculatePercentageGender('m');
+        break;
     case 6:
-
-        return 6;
+//        calculatePercentageGender('f');
+        break;
     default:
         printf("Opcao invalida.\n");
         fflush(stdin);
         return 0;
+    }
+}
+
+void calculatePercentageAge (int minAgeRange, int maxAgeRange) {
+    char line[256];
+    float totalPerson = 0, percentagePerson = 0;
+    int age = 0;
+    struct Person *readPerson;
+    readPerson = (struct Person*) malloc(sizeof(struct Person));
+
+    FILE *personFile;
+    personFile = fopen("people.txt", "r");
+
+    while(fgets(line, sizeof(line), personFile) != NULL) {
+        if (strcmp(line,"\n") != 0) {
+            totalPerson++;
+            formatPersonStructData(readPerson, line);
+            age = findAge(readPerson->birthdate);
+            if (age >= minAgeRange && age <= maxAgeRange) {
+                percentagePerson++;
+            } else {
+                //Nothing to do
+            }
+        }
+    }
+    if (!percentagePerson) {
+        printf("\nNao existe pessoa cadastrada com esse intervalo de idades.\n");
+    } else {
+        printf("A porcentagem de pessoas cadastradas nesse intervalo de idade: %.2f%%\n",  (percentagePerson / totalPerson)*100);
     }
 }
