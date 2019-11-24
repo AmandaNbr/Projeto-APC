@@ -162,7 +162,32 @@ void printPersonByName(char* readName){
     if (!foundPerson) {
         printf("\nNome nao cadastrado.\n");
     } else if (foundPerson == 1) {
-        printf("\ndeusehtop\n");
+        showDeleteOption();
+        getDeleteOption();
+    }
+}
+
+void showDeleteOption() {
+    printf("\nDeseja deletar esse cadastro?\n");
+    printf("1 - Sim.\n");
+    printf("2 - Nao.\n");
+    printf("\n");
+}
+
+void getDeleteOption() {
+    int option;
+
+    scanf("%d", &option);
+    fflush(stdin);
+
+    switch(option)
+    {
+    case 1:
+        system("cls");
+        break;
+    case 2:
+        //Nothing to do
+        break;
     }
 }
 
