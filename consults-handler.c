@@ -68,6 +68,7 @@ void printPersonByState(char *readState) {
     if (!foundPerson) {
         printf("\nNao existe nenhuma pessoa cadastrada para esse Estado.\n");
     }
+    fclose(personFile);
 }
 
 void listPersonByCourse() {
@@ -114,7 +115,9 @@ void printPersonByCourse(char* readCourse) {
     if (!foundPerson) {
         printf("\nNao existe nenhuma pessoa cadastrada para esse curso.\n");
     }
+    fclose(personFile);
 }
+
 
 void consultPerson(){
     char readName[100];
@@ -143,6 +146,7 @@ void getNameToConsult(char* readName) {
 
 void printPersonByName(char* readName){
     char line[256];
+    char lineToBeDeleted[256];
     int foundPerson = 0;
     struct Person *readPerson;
     readPerson = (struct Person*) malloc(sizeof(struct Person));
@@ -155,6 +159,7 @@ void printPersonByName(char* readName){
         if (strstr(readPerson->fullName, readName) == NULL) {
             //Nothing to do
         } else {
+            strcpy(lineToBeDeleted, line);
             printPerson(readPerson);
             foundPerson++;
         }
@@ -163,8 +168,9 @@ void printPersonByName(char* readName){
         printf("\nNome nao cadastrado.\n");
     } else if (foundPerson == 1) {
         showDeleteOption();
-        getDeleteOption();
+        getDeleteOption(lineToBeDeleted);
     }
+    fclose(personFile);
 }
 
 void showDeleteOption() {
@@ -174,7 +180,7 @@ void showDeleteOption() {
     printf("\n");
 }
 
-void getDeleteOption() {
+void getDeleteOption(char *lineToBeDeleted) {
     int option;
 
     scanf("%d", &option);
@@ -184,6 +190,7 @@ void getDeleteOption() {
     {
     case 1:
         system("cls");
+        deletePerson(lineToBeDeleted);
         break;
     case 2:
         //Nothing to do
@@ -273,6 +280,7 @@ void calculatePercentageAge (int minAgeRange, int maxAgeRange) {
     } else {
         printf("De um total de %.f cadastros, a porcentagem de pessoas cadastradas entre %d e %d anos e de %.2f%%\n", totalPerson, minAgeRange, maxAgeRange,(percentagePerson / totalPerson)*100);
     }
+    fclose(personFile);
 }
 
 void calculatePercentageGender(char *gender) {
@@ -304,4 +312,5 @@ void calculatePercentageGender(char *gender) {
     } else if (gender == "f") {
         printf("A porcentagem de pessoas cadastradas de sexo feminino: %.2f%%\n",  (percentagePersonFemale / totalPerson)*100);
     }
+    fclose(personFile);
 }

@@ -50,6 +50,7 @@ int stateValidation(char currentState[]) {
         }
     }
     return 0;
+    fclose(validationFile);
 }
 
 int stateLengthValidation(char currentState[]) {

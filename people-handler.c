@@ -207,6 +207,7 @@ int wantedCouseValidation(char *wantedCouse) {
         }
     }
     return 1;
+    fclose(coursesFile);
 }
 
 void getState(struct Person *newPerson) {
@@ -247,6 +248,7 @@ int alreadyRegisteredStateValidation(char *state) {
         }
     }
     return 1;
+    fclose(statesFile);
 }
 
 void storePerson(struct Person *newPerson) {

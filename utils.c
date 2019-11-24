@@ -12,6 +12,41 @@ int stringIsEmpty(char *stringChecked);
 void printPerson(struct Person *person);
 void formatPersonStructData(struct Person *readPerson, char *line);
 
+void deletePerson(char *lineToBeDeleted) {
+    char line[256];
+    struct Person *readPerson;
+    readPerson = (struct Person*) malloc(sizeof(struct Person));
+
+    FILE *personFile;
+    personFile = fopen("people.txt", "r");
+
+    FILE *replica;
+    replica = fopen("replica.txt", "a+");
+
+    while(fgets(line, sizeof(line), personFile) != NULL) {
+        if (strcmp(line,"\n") != 0) {
+            formatPersonStructData(readPerson, line);
+            if (strcmp(lineToBeDeleted, line) != 0) {
+                fprintf(replica, "%s", line);
+            } else {
+                //Nothing to do
+            }
+        }
+    }
+    fclose(personFile);
+    fclose(replica);
+    if (remove("C:\\Users\\Aleteia\\Documents\\Projeto APC\\people.txt") == 0) {
+        printf("\nDeletou\n");
+    } else {
+        printf("\nn deu de deletar\n");
+    }
+    if (rename("replica.txt", "people.txt") == 0) {
+        printf("\nRenomeu\n");
+    } else {
+        printf("\nn deu de renomear\n");
+    }
+}
+
 // function to calculate current age
 int findAge(int birthdate[3]) {
     time_t ts;
