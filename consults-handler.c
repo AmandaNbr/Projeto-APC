@@ -156,11 +156,13 @@ void printPersonByName(char* readName){
             //Nothing to do
         } else {
             printPerson(readPerson);
-            foundPerson = 1;
+            foundPerson++;
         }
     }
     if (!foundPerson) {
         printf("\nNome nao cadastrado.\n");
+    } else if (foundPerson == 1) {
+        printf("\ndeusehtop\n");
     }
 }
 
