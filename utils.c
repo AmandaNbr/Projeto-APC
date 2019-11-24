@@ -1,3 +1,4 @@
+struct Person;
 int findAge(int birthdate[3]);
 char *rtrim(char *str, const char *seps);
 char *ltrim(char *str, const char *seps);
@@ -6,6 +7,14 @@ void convertToLowercase(char text[]);
 int stringIsEmpty(char *stringChecked);
 void printPerson(struct Person *person);
 void formatPersonStructData(struct Person *readPerson, char *line);
+
+struct Person {
+    char fullName[100];
+    char gender[2];
+    int birthdate[3];
+    char wantedCourse[100];
+    char state[3];
+};
 
 void deletePerson(char *lineToBeDeleted) {
     char line[256];
@@ -73,8 +82,8 @@ int findAge(int birthdate[3]) {
 	}
 
 	// calculate date, month, year
-	int calculated_day = current_day - birthdate[0];
-	int calculated_month = current_month - birthdate[1];
+    // int calculated_day = current_day - birthdate[0];
+	// int calculated_month = current_month - birthdate[1];
 	int calculated_year = current_year - birthdate[2];
 
 	return calculated_year;

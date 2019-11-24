@@ -18,34 +18,26 @@
 
 1574636020 c:\users\aleteia\documents\projeto apc\projeto\people-handler.c
 
-1574295862 source:d:\testes_c\projeto\main.c
+1574637092 source:d:\testes_c\projeto\main.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
+	<time.h>
+	"utils.c"
 	"states-handler.c"
 	"courses-handler.c"
 	"people-handler.c"
-	"utils.c"
+	"consults-handler.c"
 
-1574293351 d:\testes_c\projeto\states-handler.c
-	<stdio.h>
-	<stdlib.h>
-	<string.h>
+1574637036 d:\testes_c\projeto\states-handler.c
 
-1574305363 d:\testes_c\projeto\courses-handler.c
-	<stdio.h>
-	<stdlib.h>
-	<string.h>
+1574636705 d:\testes_c\projeto\courses-handler.c
 
-1574305831 d:\testes_c\projeto\people-handler.c
-	<stdio.h>
-	<stdlib.h>
-	<string.h>
+1574637944 d:\testes_c\projeto\people-handler.c
 
-1574304876 d:\testes_c\projeto\utils.c
-	<stdio.h>
-	<stdlib.h>
-	<string.h>
+1574637873 d:\testes_c\projeto\utils.c
 
 1574636111 c:\users\aleteia\documents\projeto apc\projeto\consults-handler.c
+
+1574637997 d:\testes_c\projeto\consults-handler.c
 

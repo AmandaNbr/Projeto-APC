@@ -1,4 +1,3 @@
-struct Person;
 void registerPerson();
 void getName(struct Person *newPerson);
 void getGender(struct Person *newPerson);
@@ -10,14 +9,6 @@ int wantedCouseValidation(char *wantedCouse);
 void getState(struct Person *newPerson);
 int alreadyRegisteredStateValidation(char *state);
 void storePerson(struct Person *newPerson);
-
-struct Person {
-    char fullName[100];
-    char gender[2];
-    int birthdate[3];
-    char wantedCourse[100];
-    char state[3];
-};
 
 
 void registerPerson() {
@@ -57,13 +48,13 @@ void getName(struct Person *newPerson) {
 
         validation = stringIsEmpty(newPerson->fullName);
 
-        if (stringIsEmpty(newPerson->fullName)){
+        if (validation){
             printf("Nome nulo, informe um nome valido.\n");
         } else {
             // Nothing to do;
         }
 
-    }while(stringIsEmpty(newPerson->fullName));
+    }while(validation);
 }
 
 void getGender(struct Person *newPerson) {
@@ -149,7 +140,7 @@ int birthdateValitation(int *birthdate) {
 
     //Validate leap year
     if (birthdate[1] == 2) {
-        if (birthdate[2] % 4 == 0 && birthdate[2] % 100 != 0 || birthdate[2] % 400 == 0) {
+        if ((birthdate[2] % 4 == 0 && birthdate[2] % 100 != 0) || birthdate[2] % 400 == 0) {
             if (birthdate[0] <= 0 || birthdate[0] > 29) {
                 return 1;
             }

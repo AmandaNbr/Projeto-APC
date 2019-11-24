@@ -1,6 +1,20 @@
+void calculatePercentageGender(char *gender);
+void calculatePercentageAge (int minAgeRange, int maxAgeRange);
+void showOptionMenu();
+void getOption();
+void generateRelatory();
+void showDeleteOption();
+void getDeleteOption(char *lineToBeDeleted);
+void printPersonByName(char* readName);
 void getStateToList(char* readState);
 int validateStateToList(char* readState);
 void printPersonByState(char *readState);
+void getCourseToList(char* readCourse);
+void printPersonByCourse(char* readCourse);
+void getNameToConsult(char* readName);
+void listPersonByState();
+void listPersonByCourse();
+void consultPerson();
 
 void listPersonByState() {
     char readState[3];
@@ -245,7 +259,7 @@ void getOption() {
     default:
         printf("Opcao invalida.\n");
         fflush(stdin);
-        return 0;
+        break;
     }
 }
 
@@ -293,9 +307,9 @@ void calculatePercentageGender(char *gender) {
             totalPerson++;
             formatPersonStructData(readPerson, line);
             if (strcmp(readPerson->gender, gender) == 0) {
-                if (gender == "m") {
+                if (strcmp(gender, "m") == 0) {
                     percentagePersonMale++;
-                } else if (gender == "f") {
+                } else if (strcmp(gender, "f") == 0) {
                     percentagePersonFemale++;
                 }
             }
@@ -303,9 +317,9 @@ void calculatePercentageGender(char *gender) {
     }
     if (!percentagePersonMale && !percentagePersonFemale) {
         printf("\nNao existe pessoa cadastrada com esse sexo.\n");
-    } else if (gender == "m") {
+    } else if (strcmp(gender, "m") == 0) {
         printf("A porcentagem de pessoas cadastradas de sexo masculino e de %.2f%%\n",  (percentagePersonMale / totalPerson)*100);
-    } else if (gender == "f") {
+    } else if (strcmp(gender, "f") == 0) {
         printf("A porcentagem de pessoas cadastradas de sexo feminino e de %.2f%%\n",  (percentagePersonFemale / totalPerson)*100);
     }
     fclose(personFile);

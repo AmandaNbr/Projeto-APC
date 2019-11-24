@@ -2,11 +2,11 @@
 #include <stdlib.h>
 #include <string.h>
 #include <time.h>
+#include "utils.c"
 #include "states-handler.c"
 #include "courses-handler.c"
 #include "people-handler.c"
 #include "consults-handler.c"
-#include "utils.c"
 
 void showMenu();
 int chooseOption();
