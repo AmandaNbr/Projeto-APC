@@ -52,19 +52,49 @@ int chooseOption() {
         registerCourse();
         return 2;
     case 3:
-        registerPerson();
+        if (stateExists() && courseExists()) {
+            registerPerson();
+        } else {
+            printf("Nao ha nenhum Estado ou curso cadastrado, tente cadastra-los antes de realizar essa operacao.\n");
+            printf("\nAperte ENTER para voltar ao menu.\n");
+            fgetc(stdin);
+        }
         return 3;
     case 4:
-        listPersonByState();
+        if (stateExists()) {
+            listPersonByState();
+        } else {
+            printf("Nao ha nenhum Estado cadastrado, tente cadastrar um Estado antes de realizar essa operacao.\n");
+            printf("\nAperte ENTER para voltar ao menu.\n");
+            fgetc(stdin);
+        }
         return 4;
     case 5:
-        listPersonByCourse();
+        if (courseExists()) {
+            listPersonByCourse();
+        } else {
+            printf("Nao ha nenhum curso cadastrado, tente cadastrar um curso antes de realizar essa operacao.\n");
+            printf("\nAperte ENTER para voltar ao menu.\n");
+            fgetc(stdin);
+        }
         return 5;
     case 6:
-        consultPerson();
+        if (personExists()) {
+            consultPerson();
+        } else {
+            printf("Nao ha nenhuma pessoa cadastrada, tente cadastrar uma pessoa antes de realizar essa operacao.\n");
+            printf("\nAperte ENTER para voltar ao menu.\n");
+            fgetc(stdin);
+        }
         return 6;
     case 7:
-        generateRelatory();
+        if (personExists()) {
+            generateRelatory();
+        } else {
+            printf("Nao ha nenhuma pessoa cadastrada, tente cadastrar uma pessoa antes de realizar essa operacao.\n");
+            printf("\nAperte ENTER para voltar ao menu.\n");
+            fgetc(stdin);
+        }
         return 7;
     case 8:
         //Nothing to do

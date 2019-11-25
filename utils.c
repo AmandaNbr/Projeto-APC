@@ -39,15 +39,15 @@ void deletePerson(char *lineToBeDeleted) {
     }
     fclose(personFile);
     fclose(replica);
-    if (remove("people.txt") == 0) {
-        printf("\nDeletou\n");
+
+    if (!remove("people.txt")) {
+        if (!rename("replica.txt", "people.txt")) {
+            printf("\nCadastro deletado com sucesso!\n");
+        } else {
+            printf("\nErro ao renomear novo arquivo.\n");
+        }
     } else {
-        printf("\nErro deletar\n");
-    }
-    if (rename("replica.txt", "people.txt") == 0) {
-        printf("\nRenomeou\n");
-    } else {
-        printf("\nErro renomear\n");
+        printf("\nErro ao deletar arquivo antigo.\n");
     }
 }
 
@@ -164,4 +164,40 @@ int stringIsEmpty(char *stringChecked) {
 	} else {
 	    return 0;
 	}
+}
+
+int stateExists() {
+    FILE *statesFile;
+    if ((statesFile = fopen("states.txt", "r")))
+    {
+        fclose(statesFile);
+        return 1;
+    }
+    return 0;
+}
+
+int courseExists() {
+    FILE *coursesFile;
+    if ((coursesFile = fopen("courses.txt", "r")))
+    {
+        fclose(coursesFile);
+        return 1;
+    }
+    return 0;
+}
+
+int personExists() {
+    char line[256];
+
+    FILE *personFile;
+    if ((personFile = fopen("people.txt", "r"))) {
+        while(fgets(line, sizeof(line), personFile) != NULL) {
+            if (strcmp(line,"\n") != 0) {
+                fclose(personFile);
+                return 1;
+            }
+        }
+        fclose(personFile);
+    }
+    return 0;
 }

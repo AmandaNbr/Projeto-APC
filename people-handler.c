@@ -188,13 +188,14 @@ int wantedCouseValidation(char *wantedCouse) {
     while(fgets(readCourse, sizeof(readCourse), coursesFile) != NULL) {
         trim(readCourse, NULL);
         if (strcmp(readCourse, wantedCouse) == 0) {
+            fclose(coursesFile);
             return 0;
         } else {
             //Nada a fazer.
         }
     }
-    return 1;
     fclose(coursesFile);
+    return 1;
 }
 
 void getState(struct Person *newPerson) {
@@ -229,13 +230,14 @@ int alreadyRegisteredStateValidation(char *state) {
 
     while(fgets(readState, sizeof(readState), statesFile) != NULL) {
         if (strcmp(readState, state) == 0) {
+            fclose(statesFile);
             return 0;
         } else {
             //Nada a fazer.
         }
     }
-    return 1;
     fclose(statesFile);
+    return 1;
 }
 
 void storePerson(struct Person *newPerson) {

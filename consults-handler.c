@@ -60,25 +60,25 @@ int validateStateToList(char* readState){
 }
 
 void printPersonByState(char *readState) {
-    char line[256];
-    int foundPerson = 0;
-    struct Person *readPerson;
-    readPerson = (struct Person*) malloc(sizeof(struct Person));
+        char line[256];
+        int foundPerson = 0;
+        struct Person *readPerson;
+        readPerson = (struct Person*) malloc(sizeof(struct Person));
 
-    FILE *personFile;
-    personFile = fopen("people.txt", "r");
+        FILE *personFile;
+        personFile = fopen("people.txt", "r");
 
-    while(fgets(line, sizeof(line), personFile) != NULL) {
-        formatPersonStructData(readPerson, line);
-        if (strcmp(readPerson->state, readState) == 0) {
-            printPerson(readPerson);
-            foundPerson = 1;
+        while(fgets(line, sizeof(line), personFile) != NULL) {
+            formatPersonStructData(readPerson, line);
+            if (strcmp(readPerson->state, readState) == 0) {
+                printPerson(readPerson);
+                foundPerson = 1;
+            }
         }
-    }
-    if (!foundPerson) {
-        printf("\nNao existe nenhuma pessoa cadastrada para esse Estado.\n");
-    }
-    fclose(personFile);
+        if (!foundPerson) {
+            printf("\nNao existe nenhuma pessoa cadastrada para esse Estado.\n");
+        }
+        fclose(personFile);
 }
 
 void listPersonByCourse() {
@@ -135,7 +135,7 @@ void consultPerson(){
     getNameToConsult(readName);
 
     if(stringIsEmpty(readName)){
-        printf("Nome nao cadastrado.\\n");
+        printf("\nNome nao cadastrado.\n");
     }else{
         printPersonByName(readName);
     }
@@ -174,13 +174,14 @@ void printPersonByName(char* readName){
             foundPerson++;
         }
     }
+    fclose(personFile);
+
     if (!foundPerson) {
         printf("\nNome nao cadastrado.\n");
     } else if (foundPerson == 1) {
         showDeleteOption();
         getDeleteOption(lineToBeDeleted);
     }
-    fclose(personFile);
 }
 
 void showDeleteOption() {

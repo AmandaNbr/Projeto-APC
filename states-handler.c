@@ -40,6 +40,7 @@ int stateValidation(char currentState[]) {
 
     while(fgets(readState, sizeof(readState), validationFile) != NULL) {
         if (strcmp(readState, currentState) == 0) {
+            fclose(validationFile);
             return 1;
         } else {
             //Nada a fazer.
