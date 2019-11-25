@@ -8,6 +8,7 @@ int stringIsEmpty(char *stringChecked);
 void printPerson(struct Person *person);
 void formatPersonStructData(struct Person *readPerson, char *line);
 
+//Declaration of the person struct
 struct Person {
     char fullName[100];
     char gender[2];
@@ -16,6 +17,9 @@ struct Person {
     char state[3];
 };
 
+//Runs through the people file and find the line that the user wants to delete, and copy all the others lines and paste on
+//another file opened on this function, after that, deletes the old file and rename the new one which do not contains
+//the line to be deleted
 void deletePerson(char *lineToBeDeleted) {
     char line[256];
     struct Person *readPerson;
@@ -89,6 +93,7 @@ int findAge(int birthdate[3]) {
 	return calculated_year;
 }
 
+//Reads the data of the struct person and format in a suitable way to go to the file
 void formatPersonStructData(struct Person *readPerson, char *line){
     sscanf(line, "%[^|]|%[^|]|%d/%d/%d|%[^|]|%[^\n]\n",
            readPerson->fullName,
@@ -100,6 +105,7 @@ void formatPersonStructData(struct Person *readPerson, char *line){
            readPerson->state);
 }
 
+//Reads the data of the struct person and print in a understanding way to the user
 void printPerson(struct Person *person) {
     printf("\n           ---           \n");
     printf("Nome Completo: %s\nGenero: %s\nData de Nascimento: %d/%d/%d\nCurso Desejado: %s\nEstado: %s\n",
@@ -112,6 +118,7 @@ void printPerson(struct Person *person) {
            person->state);
 }
 
+//Reads a string and convert all the characters to lowercase
 void convertToLowercase(char text[]) {
    int c = 0;
 
@@ -123,6 +130,7 @@ void convertToLowercase(char text[]) {
    }
 }
 
+//Removes all the characters declared from the left side of the string and realoc the string
 char *ltrim(char *str, const char *seps) {
     size_t totrim;
     if (seps == NULL) {
@@ -141,6 +149,7 @@ char *ltrim(char *str, const char *seps) {
     return str;
 }
 
+//Removes all the characters declared from the right side of the string and realoc the string
 char *rtrim(char *str, const char *seps) {
     int i;
     if (seps == NULL) {
@@ -154,10 +163,12 @@ char *rtrim(char *str, const char *seps) {
     return str;
 }
 
+//Put the ltrim and rtrim together
 void trim(char *str, const char *seps) {
     ltrim(rtrim(str, seps), seps);
 }
 
+//Check if the string is empty
 int stringIsEmpty(char *stringChecked) {
     if (stringChecked[0] == '\0'){
         return 1;
@@ -166,6 +177,7 @@ int stringIsEmpty(char *stringChecked) {
 	}
 }
 
+//Validate if the states file exists
 int stateExists() {
     FILE *statesFile;
     if ((statesFile = fopen("states.txt", "r")))
@@ -176,6 +188,7 @@ int stateExists() {
     return 0;
 }
 
+//Validate if the courses file exists
 int courseExists() {
     FILE *coursesFile;
     if ((coursesFile = fopen("courses.txt", "r")))
@@ -186,6 +199,7 @@ int courseExists() {
     return 0;
 }
 
+//Validate if the people file exists
 int personExists() {
     char line[256];
 

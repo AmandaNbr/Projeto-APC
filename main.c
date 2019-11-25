@@ -1,3 +1,7 @@
+/*De acordo com as políticas de entrega de atividades repassadas pelo professor,
+certifico que os algoritmos e programas que estou entregando são de minha autoria e
+que não os repassei ou os recebi de qualquer outra pessoa. Amanda Jeniffer Pereira Nobre - 19/0124997 */
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -23,6 +27,7 @@ int main() {
     return 0;
 }
 
+//Print all the 8 options for user to choose
 void showMenu() {
     system("cls");
     printf("Escolha uma das opcoes abaixo:\n");
@@ -36,6 +41,8 @@ void showMenu() {
     printf("8 - Finalizar Programa\n");
 }
 
+//Based on the user chose option this function will validate if the number gave by the user is between
+//1 and 8, after that, will call and validate the procedure
 int chooseOption() {
     int option;
 

@@ -10,7 +10,7 @@ void getState(struct Person *newPerson);
 int alreadyRegisteredStateValidation(char *state);
 void storePerson(struct Person *newPerson);
 
-
+//Print the informations and calls the related functions to validate the data
 void registerPerson() {
     struct Person *newPerson;
     newPerson = (struct Person*) malloc(sizeof(struct Person));
@@ -37,6 +37,7 @@ void registerPerson() {
     free(newPerson);;
 }
 
+//Read the name, convert to lower case, trim and check if it's empty
 void getName(struct Person *newPerson) {
     int validation = 0;
     do{
@@ -57,6 +58,7 @@ void getName(struct Person *newPerson) {
     }while(validation);
 }
 
+//Read the gender, convert to lower case, trim and calls the validation function
 void getGender(struct Person *newPerson) {
     int validation = 0;
     do{
@@ -77,6 +79,7 @@ void getGender(struct Person *newPerson) {
     }while(validation);
 }
 
+//Validate if it's one of the characters asked
 int genderValidation(char *gender) {
     int genderLenght = strlen(gender);
 
@@ -87,6 +90,7 @@ int genderValidation(char *gender) {
     }
 }
 
+//Read the birth date and calls the validation function
 void getBirthdate(struct Person *newPerson) {
     int validation = 0;
     do{
@@ -112,6 +116,7 @@ void getBirthdate(struct Person *newPerson) {
     }while(validation);
 }
 
+//Validate if the date given is valid
 int birthdateValitation(int *birthdate) {
     //Validate year
     if (birthdate[2] <= 1899 || birthdate[2] >= 2020){
@@ -155,6 +160,7 @@ int birthdateValitation(int *birthdate) {
     return 0;
 }
 
+//Read the name, convert to lower case, trim, check if it's empty and if already is registered
 void getWantedCourse(struct Person *newPerson) {
     int stringIsEmptyValidation = 0, alreadyExistsValidation = 0;
 
@@ -179,6 +185,7 @@ void getWantedCourse(struct Person *newPerson) {
 	} while (alreadyExistsValidation || stringIsEmptyValidation);
 }
 
+//Opens the courses registered file and check if the given course is registered
 int wantedCouseValidation(char *wantedCouse) {
     char readCourse[100];
 
@@ -198,6 +205,7 @@ int wantedCouseValidation(char *wantedCouse) {
     return 1;
 }
 
+//Read the state acronym, convert to lower case, trim, check the array length and if already is registered
 void getState(struct Person *newPerson) {
     int stringLenghtValidation = 0, alreadyExistsValidation = 0;
 
@@ -222,6 +230,7 @@ void getState(struct Person *newPerson) {
 	} while (alreadyExistsValidation || !stringLenghtValidation);
 }
 
+//Opens the states registered file and check if the given state is registered
 int alreadyRegisteredStateValidation(char *state) {
     char readState[3];
 
@@ -240,6 +249,7 @@ int alreadyRegisteredStateValidation(char *state) {
     return 1;
 }
 
+//After reading all the data will open or create a file and store a person
 void storePerson(struct Person *newPerson) {
     FILE *personFile;
     personFile = fopen("people.txt", "a+");

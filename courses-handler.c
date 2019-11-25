@@ -1,7 +1,7 @@
 void registerCourse();
 void storeCourse(char currentCourse[]);
 
-
+//It's the main procedure of the register course option, organizing and calling other functions and printing validations
 void registerCourse() {
     printf("Informe o curso a ser cadastrado:\n");
 
@@ -23,6 +23,7 @@ void registerCourse() {
     fgetc(stdin);
 }
 
+//Opens an archive and store the given course if it isn't already registered
 void storeCourse(char currentCourse[]) {
     char readCourse[100];
     int alreadyRegistered = 0;

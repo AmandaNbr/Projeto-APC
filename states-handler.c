@@ -3,7 +3,7 @@ int stateValidation(char currentState[]);
 int stateLengthValidation(char currentState[]);
 void storeState(char currentState[]);
 
-
+//It's the main procedure of the register state option, organizing and calling other functions and printing validations
 void registerState() {
     printf("Informe a sigla da Unidade Federativa a ser cadastrada:\n");
 
@@ -28,6 +28,7 @@ void registerState() {
     fgetc(stdin);
 }
 
+//Opens a already prepared archive which contains the 27 states acronyms to compare and validate
 int stateValidation(char currentState[]) {
     char readState[3];
     FILE *validationFile;
@@ -50,6 +51,7 @@ int stateValidation(char currentState[]) {
     fclose(validationFile);
 }
 
+//Validate the length of the state array
 int stateLengthValidation(char currentState[]) {
 	int receivedStateLength = strlen(currentState);
 
@@ -60,6 +62,7 @@ int stateLengthValidation(char currentState[]) {
 	}
 }
 
+//Opens an archive and store the given state acronym if it isn't already registered
 void storeState(char currentState[]) {
     char readState[3];
     int alreadyRegistered = 0;

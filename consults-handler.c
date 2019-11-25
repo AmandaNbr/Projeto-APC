@@ -16,6 +16,7 @@ void listPersonByState();
 void listPersonByCourse();
 void consultPerson();
 
+//It's the main procedure of the list by state function, organizing and calling other functions
 void listPersonByState() {
     char readState[3];
 
@@ -31,6 +32,7 @@ void listPersonByState() {
     fgetc(stdin);
 }
 
+//Read the given state and convert to lower case
 void getStateToList(char* readState){
     printf("Informe o Estado: ");
 
@@ -41,6 +43,7 @@ void getStateToList(char* readState){
     trim(readState, NULL);
 }
 
+//Validate the length of the state array and if it's already registered
 int validateStateToList(char* readState){
     int stringLengValidation = 0, alreadyExistsValidation = 0;
 
@@ -59,6 +62,8 @@ int validateStateToList(char* readState){
     }
 }
 
+//Runs through the file comparing the given state and the registered state, printing the people with the
+//same state or returning a validation message
 void printPersonByState(char *readState) {
         char line[256];
         int foundPerson = 0;
@@ -81,6 +86,7 @@ void printPersonByState(char *readState) {
         fclose(personFile);
 }
 
+//It's the main procedure of the list by course function, organizing and calling other functions
 void listPersonByCourse() {
     char readCourse[100];
 
@@ -96,6 +102,7 @@ void listPersonByCourse() {
     fgetc(stdin);
 }
 
+//Read the given course and convert to lower case
 void getCourseToList(char* readCourse) {
     printf("Informe o curso: ");
 
@@ -106,6 +113,8 @@ void getCourseToList(char* readCourse) {
     trim(readCourse, NULL);
 }
 
+//Runs through the file comparing the given course and the registered course, printing the people with the
+//same course or returning a validation message
 void printPersonByCourse(char* readCourse) {
     char line[256];
     int foundPerson = 0;
@@ -128,7 +137,7 @@ void printPersonByCourse(char* readCourse) {
     fclose(personFile);
 }
 
-
+//It's the main procedure of the consult person function, organizing, calling other functions and validating
 void consultPerson(){
     char readName[100];
 
@@ -144,6 +153,7 @@ void consultPerson(){
     fgetc(stdin);
 }
 
+//Read the given person name and convert to lower case
 void getNameToConsult(char* readName) {
     printf("Informe o Nome: ");
 
@@ -154,6 +164,8 @@ void getNameToConsult(char* readName) {
     trim(readName, NULL);
 }
 
+//Runs through the file comparing the given name, printing the people with the same name or names inside other names
+//it only find one registered person it will call the delete function
 void printPersonByName(char* readName){
     char line[256];
     char lineToBeDeleted[256];
@@ -184,6 +196,7 @@ void printPersonByName(char* readName){
     }
 }
 
+//Print the question and the options to the user
 void showDeleteOption() {
     printf("\nDeseja deletar esse cadastro?\n");
     printf("1 - Sim.\n");
@@ -191,6 +204,7 @@ void showDeleteOption() {
     printf("\n");
 }
 
+//Read the answer and calls what the user wants
 void getDeleteOption(char *lineToBeDeleted) {
     int option;
 
@@ -209,6 +223,7 @@ void getDeleteOption(char *lineToBeDeleted) {
     }
 }
 
+//It's the main procedure of the generate relatory function, organizing and calling other functions
 void generateRelatory() {
 
     showOptionMenu();
@@ -219,6 +234,7 @@ void generateRelatory() {
     fgetc(stdin);
 }
 
+////Print all the 6 options for user to choose
 void showOptionMenu() {
     system("cls");
     printf("Escolha uma das opcoes abaixo:\n");
@@ -230,6 +246,7 @@ void showOptionMenu() {
     printf("6 - Percentual de pessoas de sexo feminino.\n");
 }
 
+//Reads the option and calls the procedure based on what the user chose
 void getOption() {
     int option;
 
@@ -264,6 +281,8 @@ void getOption() {
     }
 }
 
+//Runs through the file counting the number of people with the age between the parameters and the total of registered people
+//validating if there isn't people with the desired ages and calculating the percentage
 void calculatePercentageAge (int minAgeRange, int maxAgeRange) {
     char line[256];
     float totalPerson = 0, percentagePerson = 0;
@@ -294,6 +313,8 @@ void calculatePercentageAge (int minAgeRange, int maxAgeRange) {
     fclose(personFile);
 }
 
+//Runs through the file counting the number of people with the asked gender and the total of registered people
+//validating if there isn't people with the desired gender and calculating the percentage
 void calculatePercentageGender(char *gender) {
     char line[256];
     float totalPerson = 0, percentagePersonMale = 0, percentagePersonFemale = 0;
